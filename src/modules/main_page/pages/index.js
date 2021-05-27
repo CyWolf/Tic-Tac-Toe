@@ -2,12 +2,11 @@ import React, { useContext } from 'react'
 import Context from '../../../store/appContext'
 
 function MainView() {
-    const {store, actions} = useContext(Context)
     return (
         <div className='d-flex justify-content-center align-items-center vh-100'>
             <div className='div-main-view'>
                 <div className='text-center'>
-                    <h2 className='mb-3 font-family-ttt title-font-color'>Tic tac toe!{store.player}</h2>
+                    <h2 className='mb-3 font-family-ttt title-font-color'>Tic tac toe!</h2>
                 </div>
                 <div>
                     <form>
