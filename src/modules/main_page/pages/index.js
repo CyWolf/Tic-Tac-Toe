@@ -1,17 +1,35 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { Context } from '../../../store/appContext'
 
 
 function MainView() {
-    const {store, actions} = useContext(Context)
+    const { store, actions } = useContext(Context)
+    const [errorMessage, setErrorMessage] = useState('')
+    const history = useHistory()
 
-    //pista: const symbolSelected = 'symbol-color'
-    const symbolPlayerOneX = store.playerOne.symbolSelected === 'x'? 'symbol-color' : ''
-    const symbolPlayerOneO = store.playerOne.symbolSelected === 'o'? 'symbol-color' : ''
-    const symbolPlayerTwoX = store.playerTwo.symbolSelected === 'x'? 'symbol-color' : ''
-    const symbolPlayerTwoO = store.playerTwo.symbolSelected === 'o'? 'symbol-color' : ''
-    
+    const symbolPlayerOneX = store.playerOne.symbolSelected === 'X' ? 'symbol-color' : ''
+    const symbolPlayerOneO = store.playerOne.symbolSelected === 'O' ? 'symbol-color' : ''
+    const symbolPlayerTwoX = store.playerTwo.symbolSelected === 'X' ? 'symbol-color' : ''
+    const symbolPlayerTwoO = store.playerTwo.symbolSelected === 'O' ? 'symbol-color' : ''
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const playersValue =
+            store.playerOne.name === '' ||
+            store.playerOne.symbolSelected === '' ||
+            store.playerTwo.name === '' ||
+            store.playerTwo.symbolSelected === ''
+
+        if (playersValue) {
+            setErrorMessage('Todos los campos deben ser completados')
+        } else {
+            history.push('/game-view')
+        }
+    }
+
+
     return (
         <div className='d-flex justify-content-center align-items-center vh-100'>
             <div className='div-main-view'>
@@ -19,32 +37,32 @@ function MainView() {
                     <h2 className='mb-3 font-family-ttt title-font-color'>Tic tac toe!</h2>
                 </div>
                 <div>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="input-group">
-                            <input name='playerOne' type="text" className="form-control" placeholder="Player one" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4" onChange={actions.handleChange} value={store.playerOne.name}/>
+                            <input name='playerOne' type="text" className="form-control font-family-ttt" placeholder="Player one" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4" onChange={actions.handleChange} value={store.playerOne.name} />
                             <div className="input-group-append" id="button-addon4">
-                                <button className="btn btn-outline-secondary" type="button" onClick={() => actions.selectedSymbol('x')}>
-                                    <i className={`fas fa-times ${symbolPlayerOneX}`} />
+                                <button className="btn btn-outline-secondary font-family-ttt" type="button" onClick={() => actions.selectedSymbol('X')}>
+                                    <span className={symbolPlayerOneX}>X</span>
                                 </button>
-                                <button className="btn btn-outline-secondary" type="button" onClick={() => actions.selectedSymbol('o')}>
-                                    <i className={`fas fa-circle-notch ${symbolPlayerOneO}`} />
+                                <button className="btn btn-outline-secondary font-family-ttt" type="button" onClick={() => actions.selectedSymbol('O')}>
+                                    <span className={symbolPlayerOneO}>O</span>
                                 </button>
                             </div>
                         </div>
                         <div className="input-group mt-3">
-                            <input name='playerTwo' type="text" className="form-control" placeholder="Player two" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4" onChange={actions.handleChange} value={store.playerTwo.name}/>
+                            <input name='playerTwo' type="text" className="form-control font-family-ttt" placeholder="Player two" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4" onChange={actions.handleChange} value={store.playerTwo.name} />
                             <div className="input-group-append" id="button-addon4">
-                                <button className="btn btn-outline-secondary" type="button" onClick={() => actions.selectedSymbol('o')}>
-                                    <i className={`fas fa-times ${symbolPlayerTwoX}`} />
+                                <button className="btn btn-outline-secondary font-family-ttt" type="button" onClick={() => actions.selectedSymbol('O')}>
+                                    <span className={symbolPlayerTwoX}>X</span>
                                 </button>
-                                <button className="btn btn-outline-secondary" type="button" onClick={() => actions.selectedSymbol('x')}>
-                                    <i className={`fas fa-circle-notch ${symbolPlayerTwoO}`} />
+                                <button className="btn btn-outline-secondary font-family-ttt" type="button" onClick={() => actions.selectedSymbol('X')}>
+                                    <span className={symbolPlayerTwoO}>O</span>
                                 </button>
                             </div>
                         </div>
-                        <Link to='/game-view'>
-                        <button type="submit" className="btn btn-primary w-100 mt-3">Start!</button>
-                        </Link>
+
+                        <button type="submit" className="btn btn-primary font-family-ttt w-100 mt-3">Start!</button>
+                        <p className='font-family-ttt game-font-color'>{errorMessage}</p>
                     </form>
                 </div>
             </div>

@@ -1,3 +1,7 @@
+body {
+  margin: 0
+}
+
 /* Div styles */
 
 .div-main-view {
@@ -5,6 +9,8 @@
   border: 1px solid rgb(209, 209, 209);
   border-radius: 5px;
   padding: 5px 5px;
+  border: 5px;
+  border-style: outset;
 }
 
 .div-app-height {
@@ -15,14 +21,17 @@
 /* Tic tac toe font */
 
 @font-face {
-  font-family: Neonclubmusicbold;
-  src: url(../assets/fonts/NEON\ CLUB\ MUSIC_bold.otf)
+  font-family: Pixelfont;
+  src: url(../assets/fonts/04B_30__.TTF)
 }
 .font-family-ttt {
-  font-family: Neonclubmusicbold;
+  font-family: Pixelfont;
 }
 .title-font-color {
-  color: #6C757D;
+  color: #555758;
+}
+.game-font-color {
+  color: #6C757D
 }
 .symbol-color {
   color: red

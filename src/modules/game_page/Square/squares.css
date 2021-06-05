@@ -1,0 +1,14 @@
+.square {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 20%;
+}
+
+.square-font-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    padding-bottom: 25px;
+}

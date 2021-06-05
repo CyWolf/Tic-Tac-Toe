@@ -30,12 +30,12 @@ const getState = ({ getStore, setStore, getActions }) => {
                 //boton X es igual a X? asignar simbolo a playerOne jajaja a la verga que loco
                 let symbolEdited = undefined
                 let symbolEdited2 = undefined
-                if (symbol === 'x') {
-                    symbolEdited = {...store.playerOne, symbolSelected: 'x'}
-                    symbolEdited2 = {...store.playerTwo, symbolSelected: 'o'}
+                if (symbol === 'X') {
+                    symbolEdited = {...store.playerOne, symbolSelected: 'X'}
+                    symbolEdited2 = {...store.playerTwo, symbolSelected: 'O'}
                 } else {
-                    symbolEdited = {...store.playerOne, symbolSelected: 'o'}
-                    symbolEdited2 = {...store.playerTwo, symbolSelected: 'x'}
+                    symbolEdited = {...store.playerOne, symbolSelected: 'O'}
+                    symbolEdited2 = {...store.playerTwo, symbolSelected: 'X'}
                 }
                 setStore({
                     playerOne: symbolEdited,
