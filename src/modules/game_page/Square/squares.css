@@ -2,7 +2,8 @@
     width: 100px;
     height: 100px;
     margin: 5px;
-    border-radius: 20%;
+    border: outset;
+    border-radius: 8%;
 }
 
 .square-font-size {

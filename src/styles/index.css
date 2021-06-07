@@ -36,3 +36,17 @@ body {
 .symbol-color {
   color: red
 }
+
+/* Borders */
+
+.border-input {
+  border: outset;
+  border-radius: 2%;
+}
+
+/* Symbol buttons */
+
+.symbol_selected_button_size {
+  height: 38px;
+  width: 40px;
+}
