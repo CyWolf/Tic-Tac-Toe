@@ -62,7 +62,7 @@ function MainView() {
                         </div>
 
                         <button type="submit" className="btn btn-primary font-family-ttt border-input w-100 mt-3">Start!</button>
-                        <p className='font-family-ttt game-font-color mt-3'>{errorMessage}</p>
+                        <p className='font-family-ttt game-font-color mt-3 text-center'>{errorMessage}</p>
                     </form>
                 </div>
             </div>
